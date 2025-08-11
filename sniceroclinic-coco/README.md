@@ -11,7 +11,7 @@ This repository contains computational scripts to reproduce the a bifurcation di
 Computations require Matlab
 
 1. Enter folder `coco_r3316`.
-2. Execute `startup` script to set paths for `coco`.
+2. Execute `startup` script to set paths for `coco`, return to parent folder.
 3. Execute script `run_hill_js` to perform all computations, before continuation of homclinic orbit is possible. Results will be stored in subfolder `data`.
 4. Execute `run_hom`. This tracks a large-period periodic orbit in two parameters. The branch spends a long time near rthe SNICeroclinic. Along the branch in the bifurcation diagram an approximate location of the saddle-node and of the saddle gets recorded.
 5. Execute script `run_homsnic`, which tracks the SNICeroclinic in 3 parameters mu, gamma, beta. Results will be stored in subfolder `data/homsnic_phase` (run is called `homsnic`).
