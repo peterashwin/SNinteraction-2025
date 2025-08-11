@@ -1,4 +1,4 @@
-# `sniceroclinic-coco` tracking snicercolinic with coco
+# `sniceroclinic-coco` tracking sniceroclinic with coco
 
 This repository contains computational scripts to reproduce the a bifurcation diagram for SNICeroclinics in a 2d ODE.
 
