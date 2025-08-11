@@ -5,11 +5,17 @@ exportplot=false;
 hill_top_def;
 s=load('homsnic.mat');
 homsnic=s.homsnic;
+runidhom=sprintf('hill_hom_beta=%3.2f',thisbeta);
+hb=coco_bd_table('hill_hb_run');
+snpo=coco_bd_table('hill_snpo_run');
+sn1=coco_bd_table('hill_sn_run1');
+sn2=coco_bd_table('hill_sn_run2');
+hombd=coco_bd_table(runidhom);
 homsnicnames={'xeq1','yeq1','xeq2','yeq2','s1','s2'};
 homsnicvarnames=[params,{'x0','y0','x1','y1'},homsnicnames];
 ic_hs=[homsnicvarnames;num2cell(1:length(homsnicvarnames))];
 iv_hs=struct(ic_hs{:});
-ncsnic=coco_bd_table('ncsnic3par');
+ncsnic=coco_bd_table('ncsnic');
 ncsnicnames={'xeq','yeq','s1','s2','dist'};
 ncsnicvarnames=[params,{'x0','y0','x1','y1'},ncsnicnames];
 ic_nc=[ncsnicvarnames;num2cell(1:length(ncsnicvarnames))];
@@ -63,10 +69,10 @@ for i=1:length(irg)
         continue
     end
     lab=homsnic.LAB(irg(i));
-    [cs,ds]=coll_read_solution('seg','homsnic_phase',lab,'chart','data');
+    [cs,ds]=coll_read_solution('seg','homsnic',lab,'chart','data');
     t=cs.tbp;
     u=cs.xbp;
-    ch=coco_read_solution('homsnic','homsnic_phase',lab,'chart');
+    ch=coco_read_solution('homsnic','homsnic',lab,'chart');
     plot(ax2,u(:,1),u(:,2),lw{:});
     hold(ax2,'on');
     [usn,usa]=deal([ch.x(iv_hs.xeq1);ch.x(iv_hs.yeq1)],[ch.x(iv_hs.xeq2);ch.x(iv_hs.yeq2)]);
