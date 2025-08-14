@@ -64,8 +64,10 @@ for ii=1:nps
     axis square
     hold on
     s1.EdgeColor = 'none';
-    lcm=lines(200);
-    colormap(gca,lcm);
+    colourmap=turbo(20);
+    colormap(gca,colourmap)
+    %lcm=lines(200);
+    %colormap(gca,lcm);
     clim([-1 1]);
     plot(xa,ya,'k');
     plot(xb,yb,'k');
