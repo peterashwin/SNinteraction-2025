@@ -140,7 +140,7 @@ end
 out=cell(1,nf);
 [out{:}]=fun(ext,order,uc{:},duc{:});
 %% The ith row gets either filled in or expanded
-y=NaN(nf,nvec);
+y=cast(NaN(nf,nvec),class(u));
 for i=nf:-1:1
     y(i,:)=out{i};
 end

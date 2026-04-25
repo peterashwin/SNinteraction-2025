@@ -10,6 +10,9 @@
 
 %we set mu=lambda-lambda_tr0
 
+clear 
+format compact
+startup_coco(fullfile('coco_r3316'))
 
 %------------------------
 %% Define the system

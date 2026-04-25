@@ -1,3 +1,6 @@
+%% initialize coco
+%%
+startup_coco(fullfile('coco_r3316'))
 %------------------------
 %% Define the system
 %------------------------

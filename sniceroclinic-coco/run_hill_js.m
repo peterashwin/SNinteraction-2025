@@ -38,17 +38,20 @@ fprintf('\n Following the curve of Hopf bifurcations')
 HB   = coco_bd_labs('hill_ep_run', 'HB');
 prob = coco_prob;
 prob = ode_HB2HB(prob, '', 'hill_ep_run', HB);
-data = struct('dfdxhan', F('x'), 'Dfdxdxhan', F({'x*v','x*v'}), ...
-  'Dfdxdxdxhan', F({'x*v','x*v','x*v'}), 'nanflag', 1);
-
+data = struct('dfdx', F('x'), 'Dfdxdx', F({'x*v','x*v'}), ...
+    'Dfdxdxdx', F({'x*v','x*v','x*v'}), 'nanflag', 1);
+prob = ep_HB_add_func(prob, '', 'lyap', @lyapunov, data, ...
+    'regular', 'L1');
 prob = coco_add_event(prob, 'UZ', 'gamma',1.0);
+prob = coco_add_event(prob, 'GH', 'L1',0);
 
 coco(prob, 'hill_hb_run', [], 1, {'mu', 'gamma', 'L1'}, [-1 1]);
-
+%% plot result
 figure(1)
-%clf
+clf
 hold on
-thm = struct('special', {{'BTP'}});
+thm = struct('special', {{'BTP','GH'}});
+thm.GH = {'ks', 'MarkerFaceColor', 'k', 'MarkerSize', 10};
 thm.xlab = '\mu';
 thm.ylab = '\gamma';
 thm.zlab = 'x_1';

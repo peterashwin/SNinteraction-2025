@@ -2,6 +2,7 @@
 clear
 exportvideo=false;
 exportplot=false;
+exportweb=true;
 hill_top_def;
 s=load('homsnic.mat');
 homsnic=s.homsnic;
@@ -116,4 +117,7 @@ if exportvideo
 end
 if exportplot
     exportgraphics(figure(2),'homsnic.pdf');
+end
+if exportweb && ~verLessThan('matlab','26')
+    exportgraphics(figure(2),'homsnic.html');
 end
