@@ -23,7 +23,7 @@ c=struct('TB','k','gh',clr(3,:),'sniceroclinic',clr(1,:),'cusp',clr(2,:),...
 [lw,lw3,lw4]=deal({'LineWidth',2},{'LineWidth',3},{'LineWidth',4});
 txt={'FontSize',16,'FontName','Courier'};
 ltx={'Interpreter','LaTeX'};
-fig=figure(1);clf;ax=gca;hold(ax,'on');
+fig=figure(3);clf;ax=gca;hold(ax,'on');
 [lims.x,lims.y,lims.z]=deal([-0.12,0.04],[-3.5,0],[-4,4]);
 plot3(ax,homsnic.mu,homsnic.beta,homsnic.gamma,'color',c.sniceroclinic,...
     'DisplayName','SNICeroclinic',lw{:});
@@ -44,9 +44,11 @@ ax.View=[20,30];
 xlabel(ax,'$\mu$',txt{:},ltx{:});
 ylabel(ax,'$\beta$',txt{:},ltx{:});
 zlabel(ax,'$\gamma$',txt{:},ltx{:});
+title(ax,sprintf(['\\textbf{Ashwin et al}, \\textit{Local interaction of two systems with saddle-node '...
+    'bifurcations}:\n \\textit{mutualistic and mixed cases}, Figure 5']),ltx{:})
 lgd = legend(ax,'FontName','Times','Interpreter','latex','Location','EastOutside');
 lgd.EdgeColor='none';
-fig.Position(3:4)=[900,750];
+fig.Position(3:4)=[1050,625];
 if exportweb && ~verLessThan('matlab','26') %#ok<*VERLESSMATLAB>
-    exportgraphics(figure(1),'../Figure5.html');
+    exportgraphics(figure(3),'../Figure5.html');
 end

@@ -21,10 +21,11 @@ i_ncsnic=i_ncsnic_cand(2);
 [~,i_snpo_end]=min(sum([hom.mu,hom.gamma]-[snpo.mu(end),snpo.gamma(end)],2).^2);
 [i_csnpo(1),i_csnpo(2)]=deal(min(i_snpo_end,i_sniceroclinic),max(i_snpo_end,i_sniceroclinic));
 rg_csnpo=i_csnpo(1):i_csnpo(2);
+%% generate plots twice (with zoom the second time)
 [lw,lw3,lw4]=deal({'LineWidth',2},{'LineWidth',3},{'LineWidth',4});
 txt={'FontSize',16,'FontName','Courier'};
 ltx={'Interpreter','LaTeX'};
-fig=figure(1);clf;tiledlayout(2,3,'TileSpacing','tight');
+fig1=figure(1);clf;tiledlayout(2,3,'TileSpacing','tight');
 tiles={{1,[2,2]},{3,[1,1]}};
 [lims.x,lims.y]=deal({[-0.7,0.4],[-0.15,0.05]},{[-6,5],[3.5,3.7]});
 for i=1:length(tiles)
@@ -47,10 +48,31 @@ for i=1:length(tiles)
     xlabel(ax(i),'$\mu$',txt{:},ltx{:});
     ylabel(ax(i),'$\gamma$',txt{:},ltx{:});
 end
+title(ax(1),sprintf(['\\textbf{Ashwin et al}, \\textit{Local interaction of two systems with saddle-node '...
+    'bifurcations}:\n \\textit{mutualistic and mixed cases}, Figure 2']),ltx{:})
 lgd = legend(ax(1),'FontName','Times','Interpreter','latex');
 lgd.Layout.Tile = 6;   % place legend in the 4th tile of the grid
 lgd.EdgeColor='none';
-fig.Position(3:4)=[1400,700];
+fig1.Position(3:4)=[1400,700];
+%% Lyapunov coefficient for Hopf bifurcation
+fig2=figure(2);clf;ax2=gca;
+sel=~isnan(hb.L1);
+plot(ax2,hb.gamma(sel),hb.L1(sel),'-',lw{:});
+xline(0,'k','LineWidth',1);
+yline(0,'k','LineWidth',1);
+grid(ax2,'on');
+ylim(ax2,0.1*[-1,1]);
+xlabel(ax2,'$\gamma$',txt{:},ltx{:});
+ylabel(ax2,'$L_1$ (1st Lyapunov coefficient)',txt{:},ltx{:});
+set(ax2,txt{:});
+title(ax2,sprintf(['\\textbf{Ashwin et al}, \\textit{Local interaction of two systems with saddle-node '...
+    'bifurcations}:\n \\textit{mutualistic and mixed cases}, $L_1$ along axis $\\mu=0$ in Figure 2']),ltx{:})
+fig2.Position(3:4)=[900,500];
+%%
 if exportweb && ~verLessThan('matlab','26') %#ok<*VERLESSMATLAB>
     exportgraphics(figure(1),'../Figure2.html');
+end
+%%
+if exportweb && ~verLessThan('matlab','26') %#ok<*VERLESSMATLAB>
+    exportgraphics(figure(2),'../Figure2-Hopf-L1.html');
 end
