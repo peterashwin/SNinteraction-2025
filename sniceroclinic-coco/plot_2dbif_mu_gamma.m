@@ -73,6 +73,6 @@ if exportweb && ~verLessThan('matlab','26') %#ok<*VERLESSMATLAB>
     exportgraphics(figure(1),'../Figure2.html');
 end
 %%
-if exportweb && ~verLessThan('matlab','26') %#ok<*VERLESSMATLAB>
-    exportgraphics(figure(2),'../Figure2-Hopf-L1.html');
-end
+%if exportweb && ~verLessThan('matlab','26') %#ok<*VERLESSMATLAB>
+%    exportgraphics(figure(2),'../Figure2-Hopf-L1.html');
+%end

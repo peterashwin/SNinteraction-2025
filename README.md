@@ -30,6 +30,7 @@ Computations require Matlab
 7. Execute script [animate_hom.m](sniceroclinic-coco/animate_hom.m) to view animation of time profiles of large-period periodic orbits.
 8. Execute script [plot_2dbif_mu_gamma.m](sniceroclinic-coco/plot_2dbif_mu_gamma.m) to generate plots for Figure 2 and Figure2-Hopf-L1.
 9. Execute script [plot_3dbif_mu_gamma_beta.m](sniceroclinic-coco/plot_3dbif_mu_gamma_beta.m) to generate plots for Figure 5.
+10. Execute script [hopf_criticality.m](sniceroclinic-coco/hopf_criticality.m) to determine formula for Lyapunov coeffficient of Hopf bifurcation.
 
 ### Folder MATLAB
 

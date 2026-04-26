@@ -21,3 +21,4 @@ Computations require Matlab
 6. Execute script [animate_hom.m](animate_hom.m) to view animation of time profiles of large-period periodic orbits.
 7. Execute script [plot_2dbif_mu_gamma.m](plot_2dbif_mu_gamma.m) to generate plots for Figure 2 and Figure2-Hopf-L1.
 8. Execute script [plot_3dbif_mu_gamma_beta.m](plot_3dbif_mu_gamma_beta.m) to generate plots for Figure 5.
+9. Execute script [hopf_criticality.m](hopf_criticality.m) to determine formula for Lyapunov coeffficient of Hopf bifurcation.

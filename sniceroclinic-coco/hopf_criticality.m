@@ -57,8 +57,11 @@ xline(ax1,0,'k','LineWidth',1);
 yline(ax1,0,'k','LineWidth',1);
 grid(ax1,'on')
 ylim(ax1,1*[-1,1]);
-title(ax1,['$$\mbox{Lyapunov coefficient\quad}L_1=',latex(l1),...
-    '\quad\mbox{($\alpha=',num2str(hb.alpha(1)),'$, $\beta=',num2str(hb.beta(1)),'$)}$$'],ltx{:},txt{:});
+L1str=['$$\mbox{Lyapunov coefficient\quad}L_1=',latex(l1),...
+    '\quad\mbox{($\alpha=',num2str(hb.alpha(1)),'$, $\beta=',num2str(hb.beta(1)),'$)}$$'];
+titlestr=sprintf(['\\textbf{Ashwin et al}, \\textit{Local interaction of two systems with saddle-node '...
+    'bifurcations}:\n \\textit{mutualistic and mixed cases},\n %s'],L1str);
+title(ax1,titlestr,ltx{:},txt{:});
 set(ax1,txt{:});
 ax2=nexttile(2);
 semilogy(ax2,hb.gamma,abs(l1n-hb.L1.*nV2n),'o','Color',clr(1,:),lw{:});
@@ -67,7 +70,7 @@ grid(ax2,'on')
 title(ax2,'difference to numerical result (after scaling change-of-basis matrix)',ltx{:},txt{:});
 ylim(ax2,[1e-18,1]);
 set(ax2,txt{:});
-fig.Position(3:4)=[900,500];
+fig.Position(3:4)=[900,600];
 if exportweb && ~verLessThan('matlab','26') %#ok<*VERLESSMATLAB>
     exportgraphics(figure(4),'../Figure2-Hopf-L1.html');
 end
