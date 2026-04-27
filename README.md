@@ -6,9 +6,9 @@ This repository contains interactive versions of figures and computational scrip
 
 ## Interactive figures 
 (require javascript)
-* [Figure2.html](https://peteraswhin.github.io/SNinteraction-2025/Figure2.html)
-* [Figure5.html](https://peteraswhin.github.io/SNinteraction-2025/Figure5.html)
-* [Figure2-Hopf-L1.html](https://peteraswhin.github.io/SNinteraction-2025/Figure2-Hopf-L1.html) (not in the paper)
+* [Figure2.html](https://peterashwin.github.io/SNinteraction-2025/Figure2.html)
+* [Figure5.html](https://peterashwin.github.io/SNinteraction-2025/Figure5.html)
+* [Figure2-Hopf-L1.html](https://peterashwin.github.io/SNinteraction-2025/Figure2-Hopf-L1.html) (not in the paper)
 
 ## Subfolders:
 * [sniceroclinic-coco](sniceroclinic-coco): scripts for reproducing graphs in Figure 2, Figure 5, and check of criticality of Hopf bifurcation.
